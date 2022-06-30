@@ -36,7 +36,7 @@ I WANT a back end for my e-commerce website that uses the latest technologies
 SO THAT my company can compete with other e-commerce companies  
 
 ## Visuals
-![Keep Track image](./images/keeptrack.png)
+![Back End image](./images/keeptrack.png)
 ## Credits
  I was fortunate enough to get additional assistance from class mates either during office hours or during private study group sessions after class. I truly appreciate any help that I have received throughout this project.
 
