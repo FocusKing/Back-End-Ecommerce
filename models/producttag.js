@@ -11,9 +11,13 @@ productTag.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    tag_number: {
-      type: DataTypes.UUID,
-      defaultValue: UUIDV4,
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'product',
+        key: 'id',
+      },
+    
     },
     tag_id: {
       type: DataTypes.INTEGER,
