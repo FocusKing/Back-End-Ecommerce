@@ -12,29 +12,16 @@ Tag.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    tag_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1],
-      },
-    },
-  },
+    
+  },  
   {
+    // review with tutor or instructor on how to correctly implement.
     hooks: {
-      beforeCreate: async (newReader) => {
+      beforeCreate: async (newTag) => {
         try {
           newTag.number = await bcrypt.hash(newTag.number, 10);
           return newTag;
