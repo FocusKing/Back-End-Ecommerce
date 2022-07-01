@@ -11,37 +11,11 @@ Category.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    category_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    author: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    isbn: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    pages: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    edition: {
-      type: DataTypes.INTEGER,
-      defaultValue: 1
-    },
-    is_paperback: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true
-    },
-   tag_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'tag',
-        key: 'id',
-      },
-    },
+    
   },
   {
     sequelize,
