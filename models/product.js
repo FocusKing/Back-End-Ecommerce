@@ -12,23 +12,30 @@ Product.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    product_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
+    price: {
+      type: DataTypes.DECIMAL,
       allowNull: false,
-      unique: true,
       validate: {
-        isEmail: true,
+        isDecimal: true,
       },
     },
-    password: {
-      type: DataTypes.STRING,
+    stock: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 10,
       validate: {
-        len: [1],
+        is:/^[0-9a-f]{64}$/i,
+      },
+
+      category_id: {
+        type: DataTypes.INTEGER,
+        // have to reference the category model's id!!
+        
+      
       },
     },
   },
