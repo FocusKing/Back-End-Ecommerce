@@ -22,4 +22,4 @@ ProductTag.belongsTo(Tag, {
   foreignKey: 'tag_id',
 });
 
-module.exports = { Tag, Category, Product };
+module.exports = { Tag, Category, Product, ProductTag };
