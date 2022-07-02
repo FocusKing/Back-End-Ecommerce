@@ -1,10 +1,10 @@
-const Category = require('./Category');
-const Product = require('./Product');
-const Tag= require('./Tag');
-const productTag= require('./producttag');
-const Category = require('./Category');
+const Category = require('./category');
+const Product = require('./product');
+const Tag= require('./tag');
+const ProductTag= require('./productTag');
 
-Tag.hasOne(productTag, {
+
+Tag.hasOne(ProductTag, {
   foreignKey: 'tag_id',
   onDelete: 'CASCADE',
 });
@@ -18,8 +18,8 @@ Category.belongsTo(Tag, {
   foreignKey: 'tag_id',
 });
 
-productTag.belongsTo(Tag, {
-  foreignKey: 'reader_id',
+ProductTag.belongsTo(Tag, {
+  foreignKey: 'tag_id',
 });
 
 module.exports = { Tag, Category, Product };

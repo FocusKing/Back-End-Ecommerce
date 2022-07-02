@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class Product extends Model {}
@@ -45,29 +45,29 @@ Product.init(
     },
   },
   {
-    hooks: {
-      beforeCreate: async (newProduct) => {
-        try {
-          newProduct.number = await bcrypt.hash(newProduct.number, 10);
-          return newProduct;
-        } catch (err) {
-          console.log(err);
-          return err;
-        }
-      },
-      beforeUpdate: async (updatedProduct) => {
-        try {
-          updatedProduct.number = await bcrypt.hash(
-            updatedProduct.number,
-            10
-          );
-          return updatedProduct;
-        } catch (err) {
-          console.log(err);
-          return err;
-        }
-      },
-    },
+    // hooks: {
+    //   beforeCreate: async (newProduct) => {
+    //     try {
+    //       newProduct.number = await bcrypt.hash(newProduct.number, 10);
+    //       return newProduct;
+    //     } catch (err) {
+    //       console.log(err);
+    //       return err;
+    //     }
+    //   },
+    //   beforeUpdate: async (updatedProduct) => {
+    //     try {
+    //       updatedProduct.number = await bcrypt.hash(
+    //         updatedProduct.number,
+    //         10
+    //       );
+    //       return updatedProduct;
+    //     } catch (err) {
+    //       console.log(err);
+    //       return err;
+    //     }
+    //   },
+    // },
     sequelize,
     timestamps: false,
     freezeTableName: true,
