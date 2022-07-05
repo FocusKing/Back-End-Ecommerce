@@ -28,46 +28,21 @@ Product.init(
       allowNull: false,
       defaultValue: 10,
       validate: {
-        is:/^[0-9a-f]{64}$/i,
+        isNumeric: true,
       },
 
       category_id: {
         type: DataTypes.INTEGER,
-        type: DataTypes.INTEGER,
       references: {
         model: 'category',
         key: 'id',
-      },
+      }
         // have to reference the category model's id!!
-        
-      
       },
     },
   },
   {
-    // hooks: {
-    //   beforeCreate: async (newProduct) => {
-    //     try {
-    //       newProduct.number = await bcrypt.hash(newProduct.number, 10);
-    //       return newProduct;
-    //     } catch (err) {
-    //       console.log(err);
-    //       return err;
-    //     }
-    //   },
-    //   beforeUpdate: async (updatedProduct) => {
-    //     try {
-    //       updatedProduct.number = await bcrypt.hash(
-    //         updatedProduct.number,
-    //         10
-    //       );
-    //       return updatedProduct;
-    //     } catch (err) {
-    //       console.log(err);
-    //       return err;
-    //     }
-    //   },
-    // },
+
     sequelize,
     timestamps: false,
     freezeTableName: true,

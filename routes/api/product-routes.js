@@ -12,14 +12,12 @@ const {
 router.get('/', async (req, res) => {
   try {
     const productData = await Product.findAll({
-      include: [{
-        model: Category,
-        attributes: ['category_name']
-      }, {
-        model: Tag,
-        attributes: ['tag_name']
-      }],
-      attributes: ['id', 'price', 'product_name', 'stock']
+      include: [
+        Category, {
+          model: Tag,
+          through: ProductTag
+        }
+      ],  
     });
     res.status(200).json(productData);
   } catch (err) {
@@ -34,16 +32,12 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
-      include: [{
-          model: Category,
-          attributes: ['category_name']
-        },
-        {
+      include: [
+        Category, {
           model: Tag,
-          attributes: ['tag_name']
-        },
+          through: ProductTag
+        }
       ],
-      attributes: ['id', 'price', 'product_name', 'stock']
     });
 
     if (!productData) {
@@ -60,13 +54,8 @@ router.get('/:id', async (req, res) => {
 });
 // Remember Anthony said you can have asycn await as well as .then running
 router.post('/', async (req, res) => {
-  await Product.create({
-    product_name: req.body.product_name,
-    price: req.body.price,
-    stock: req.body.stock,
-    tagIds: req.body.tagIds,
-    category_id: req.body.category_id
-  })
+ 
+  Product.create(req.body)
   .then((product) => {
     if(req.body.tagIds.length) {
       const productTagIdArr = req.body.tagIds.map((tag_id) => {

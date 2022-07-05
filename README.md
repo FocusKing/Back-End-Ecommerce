@@ -2,6 +2,7 @@
 
 ## Resources 
 [GitHubLink](https://github.com/FocusKing/Back-End-Ecommerce)
+[Screencastify Demo](https://drive.google.com/file/d/1k5uO-_HW3zTzC7gauAKqcuitb9mfOh2a/view)
 
 ## Badges
 ![stayCLEAN](https://img.shields.io/badge/stay-CLEAN-blue)
@@ -28,7 +29,7 @@ THEN I am able to successfully create, update, and delete data in my database
 - [Test](#tests)
 
 ## Installation
-Our challenge is to create an application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.
+In this challenge, there is code which builds out a e-commerce back-end database. The code builds out a template which is then used in the application Insomnia. 
 
 ## Usage
 AS A manager at an internet retail company
@@ -45,4 +46,4 @@ MIT License
 Copyright (c) [2022] [Marquise Allen]
 
 ## Tests
-Great way to test the program is by using npm start, if you have installed nodemon globally, you may also be able to test the program by using it.  Be sure to review the terminal for any errors. You can also console log data to see how the program is running and what information is being pulled through. 
+Great way to test the program is by running "mysql -u root" to get into the mysql dependency, then run "source db/schema.sql" and be sure to exit the program before you attempt to run the database. Also, be sure to check your package json file for any other dependecies or installations necessary to start your programs. The user will then run nodemon or npm start to initilize the application, to test and check your routes, use insomnia to see all of your request results. 
